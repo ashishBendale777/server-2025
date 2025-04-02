@@ -1,10 +1,17 @@
 import express from "express"
 import bodyparser from "body-parser"
-//crreate a server variable
+import { connectToDatabase } from "./src/DB/dbConnection.js"
+import { userRouter } from "./src/routes/UserRoutes.js"
 
+
+//crreate a server variable
 let Server = express()
 
 Server.use(bodyparser.json())
+
+
+//Call DB Connection function
+connectToDatabase()
 
 //HTTP Methods GET POST PUT DELETE PATCH
 
@@ -40,6 +47,8 @@ Server.post("/adduser", (req, res) => {
     res.status(200).send("Done")
 })
 
+//connect routes with Server
+Server.use("/api", userRouter)
 
 ///start the server
 Server.listen(5000, () => {
