@@ -1,9 +1,35 @@
 {
     "userName": "Ahsih",
-    "userEmail": "ashdha@gmai.cim",
-    "userGender": "M",
-    "userAge": 54,
-    "userPhoto":"ahsdahs fjk",
+    "userEmail": "SADDADADA@gmai.cim",
+    "userGender": "Male",
+    "userAge": 12,
     "userBio": "ahfjashfhs fsdjfjsd fjsdf jsdhfjsdhfjh sjfsf",
     "userRole": "user"
+}
+
+
+
+{
+    "data": {
+        "userName": "Ahsih",
+        "userEmail": "saddadada@gmai.cim",
+        "userGender": "Male",
+        "userAge": 16,
+        "userRegistrationDate": "2025-04-03T06:14:51.826Z",
+        "userPhoto": "PHOTO",
+        "userBio": "ahfjashfhs fsdjfjsd fjsdf jsdhfjsdhfjh sjfsf",
+        "userRole": "user",
+        "_id": "67ee27c5af94f8a8e780a7e1",
+        "__v": 0
+    },
+    "message": "User Added Successfully"
+}
+
+{
+    "userId": "67ee27c5af94f8a8e780a7e1"
+}
+
+{
+    "userId": "67ee28170657921f54892762",
+    "userAge": 45
 }

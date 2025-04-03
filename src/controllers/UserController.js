@@ -27,6 +27,38 @@ let fetchAllUsers = async (req, res) => {
     } catch (error) {
         res.status(500).json(error)
     }
+
 }
 
-export { createUser, fetchAllUsers }
+
+//delete user data
+let deleteUser = async (req, res) => {
+    try {
+        let { userId } = req.body
+        let result = await User.findByIdAndDelete({ _id: userId })
+        res.status(200).json({
+            message: "User Deleted"
+        })
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+
+//update user 
+let updateUser = async (req, res) => {
+    try {
+        let { userId, userAge } = req.body
+        let result = await User.findByIdAndUpdate({ _id: userId }, {
+            userAge: userAge
+        }, { new: false })
+        res.status(200).json({
+            data: result,
+            message: "User Age Updated"
+        })
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+export { createUser, fetchAllUsers, deleteUser, updateUser }

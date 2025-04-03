@@ -1,0 +1,10 @@
+mongoosse Validators--
+--required field (String/Number)
+--min/max value (Number)
+--minlength/maxlength (String)
+--enum (String/Number)
+--case (lower/upper) (String)
+--default value setting
+--trim - remove leading/trailing spaces
+--custom Validators 
+--RegEx (Regular Expression) validators
