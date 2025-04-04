@@ -33,3 +33,174 @@
     "userId": "67ee28170657921f54892762",
     "userAge": 45
 }
+
+
+
+Skip to content
+Chat history
+
+
+
+ChatGPT
+ChatGPT
+Explore GPTs
+Today
+Previous 30 Days
+Upgrade plan
+More access to the best models
+You said:
+
+"id": 1,
+"title": "Essence Mascara Lash Princess",
+"description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+"category": "beauty",
+"price": 9.99,
+"discountPercentage": 7.17,
+"rating": 4.94,
+"stock": 5, create mongoose shma
+ChatGPT said:
+Here's a Mongoose schema for the provided product data:
+
+const mongoose = require('mongoose');
+
+const productSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+    required: true,
+    unique: true
+  },
+  title: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  description: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  category: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  discountPercentage: {
+    type: Number,
+    required: true
+  },
+  rating: {
+    type: Number,
+    required: true,
+    min: 0,
+    max: 5
+  },
+  stock: {
+    type: Number,
+    required: true,
+    min: 0
+  }
+}, { timestamps: true });
+
+const Product = mongoose.model('Product', productSchema);
+
+module.exports = Product;
+Let me know if you want to include additional fields like images, brand, or handle inventory logic too.
+
+You said:
+"rating": 2,
+"comment": "Very unhappy with my purchase!",
+"date": "2024-05-23T08:56:21.618Z",
+"reviewerName": "John Doe",
+"reviewerEmail": "john.doe@x.dummyjson.com"  create mongoose chema
+ChatGPT said:
+Here's a Mongoose schema for the provided review data:
+
+const mongoose = require('mongoose');
+
+const reviewSchema = new mongoose.Schema({
+  rating: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 5
+  },
+  comment: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  date: {
+    type: Date,
+    required: true,
+    default: Date.now
+  },
+  reviewerName: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  reviewerEmail: {
+    type: String,
+    required: true,
+    trim: true,
+    lowercase: true,
+    match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address']
+  }
+}, { timestamps: true });
+
+const Review = mongoose.model('Review', reviewSchema);
+
+module.exports = Review;
+Let me know if you plan to link reviews to products (e.g., via productId) — I can add that to the schema too.
+
+You said:
+import mongoose from "mongoose";
+
+const ProductSchema = new mongoose.Schema({
+
+    title: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    description: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    category: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    discountPercentage: {
+        type: Number
+    },
+    stock: {
+        type: Boolean,
+        default: false
+    }
+}, { timestamps: true });
+
+{
+  "title": "Essence Mascara Lash Princess",
+  "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+  "category": "beauty",
+  "price": 9.99,
+  "discountPercentage": 7.17
+}
+
+{
+    "rating": 4,
+    "comment": "asjdhasd ashdjas dasdhjasd ad   ",
+    "productId":"67ef77631d3a716f816d9aa3",
+    "userId":"67ee28170657921f54892762"
+}
