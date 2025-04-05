@@ -1,6 +1,8 @@
 import { Review } from "../models/RevieqSchema.js";
 
 
+//mongoose ref schema using populate
+
 let createReview = async (req, res) => {
 
     let reqData = req.body
@@ -39,5 +41,6 @@ let fetchAlReviewsWithPopulate = async (req, res) => {
     }
 
 }
+
 
 export { createReview, fetchAlReviews,fetchAlReviewsWithPopulate }

@@ -4,6 +4,7 @@ import { connectToDatabase } from "./src/DB/dbConnection.js"
 import { userRouter } from "./src/routes/UserRoutes.js"
 import { productRouter } from "./src/routes/ProductRoutes.js"
 import { reviewRputer } from "./src/routes/ReviewRoutes.js"
+import { orderRouter } from "./src/routes/OrderRoutes.js"
 
 
 //crreate a server variable
@@ -25,6 +26,7 @@ Server.get("/", (req, res) => {
 Server.use("/api", userRouter)
 Server.use("/api", productRouter)
 Server.use("/api", reviewRputer)
+Server.use("/api", orderRouter)
 
 ///start the server
 Server.listen(5000, () => {
