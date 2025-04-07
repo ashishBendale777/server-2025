@@ -6,12 +6,14 @@ import { productRouter } from "./src/routes/ProductRoutes.js"
 import { reviewRputer } from "./src/routes/ReviewRoutes.js"
 import { orderRouter } from "./src/routes/OrderRoutes.js"
 
+import cors from "cors"
 
 //crreate a server variable
 let Server = express()
 
-Server.use(bodyparser.json())
 
+Server.use(bodyparser.json())
+Server.use(cors())
 
 //Call DB Connection function
 connectToDatabase()
