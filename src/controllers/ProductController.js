@@ -29,4 +29,34 @@ let fetchAlProducts = async (req, res) => {
 
 }
 
-export { createProduct, fetchAlProducts }
+
+let deleteProduct = async (req, res) => {
+    try {
+        let { prodId } = req.body
+        let result = await Product.findByIdAndDelete({ _id: prodId })
+        res.status(200).json({
+            message: "Product Deleted"
+        })
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+
+let updateProduct = async (req, res) => {
+    try {
+        let { prodId, price } = req.body
+        let result = await Product.findByIdAndUpdate({ _id: prodId }, {
+            price: price
+        }, { new: true })
+        res.status(200).json({
+            data: result,
+            message: "Product Updated"
+        })
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+
+export { createProduct, fetchAlProducts, deleteProduct, updateProduct }
