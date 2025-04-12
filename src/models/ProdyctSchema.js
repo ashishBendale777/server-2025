@@ -24,6 +24,7 @@ const ProductSchema = new mongoose.Schema({
     discountPercentage: {
         type: Number
     },
+    prodimage: { type: String },
     isAvailable: {
         type: Boolean,
         default: false

@@ -1,13 +1,17 @@
 import { Product } from "../models/ProdyctSchema.js";
 
-
+//
 //add product
 let createProduct = async (req, res) => {
 
     let reqData = req.body
     console.log("UserData", reqData);
+
+
     try {
-        let result = await Product.create(reqData)
+        let filPath = req.file.path
+        console.log("FILE", filPath);
+        let result = await Product.create({ ...req.body, prodimage: filPath})
         res.status(200).json({
             data: result,
             message: "Product Added Successfully"
