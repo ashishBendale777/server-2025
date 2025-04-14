@@ -30,6 +30,8 @@ Server.use("/api", productRouter)
 Server.use("/api", reviewRputer)
 Server.use("/api", orderRouter)
 
+Server.use("/Uploadimages",express.static("Uploadimages"))
+
 ///start the server
 Server.listen(5000, () => {
     console.log("Server Started");

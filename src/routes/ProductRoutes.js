@@ -12,3 +12,5 @@ productRouter.put("/updateproduct", updateProduct)
 export { productRouter }
 
 
+
+//multer file upload
