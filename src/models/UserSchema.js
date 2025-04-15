@@ -2,17 +2,10 @@ import mongoose from "mongoose";
 
 let UserSchema = mongoose.Schema({
     userName: {
-        type: String,
-        uppercase: true,
-        required: [true, "User Name canot be blank"],
-        minlength: [4, "Name should be more than 4 char"],
-        maxlength: [15, "Name should be less than 15 char"],
-        trim: true
+        type: String
     },
     userEmail: {
-        type: String,
-        required: true,
-        lowercase: true
+        type: String
     },
     userGender: {
         type: String,
@@ -21,9 +14,11 @@ let UserSchema = mongoose.Schema({
             message: "select correct gender"
         }
     },
+    userPassword: {
+        type: String
+    },
     userAge: {
         type: Number,
-        min: [15, "Age should be more than 15"]
     },
     userRegistrationDate: {
         type: Date,

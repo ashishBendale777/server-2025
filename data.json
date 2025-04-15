@@ -1,8 +1,9 @@
 {
-  "userName": "Ahsih",
-  "userEmail": "SADDADADA@gmai.cim",
+  "userName": "Ahsihasas",
+  "userEmail": "asasasas@gmai.cim",
   "userGender": "Male",
   "userAge": 12,
+  "userPassword": "asd@123",
   "userBio": "ahfjashfhs fsdjfjsd fjsdf jsdhfjsdhfjh sjfsf",
   "userRole": "user"
 }
@@ -227,4 +228,36 @@ const ProductSchema = new mongoose.Schema({
     },
   ],
   "userId": "67ee28170657921f54892762"
+}
+
+
+
+{
+  "errors": {
+      "userEmail": {
+          "name": "ValidatorError",
+          "message": "Path `userEmail` is required.",
+          "properties": {
+              "message": "Path `userEmail` is required.",
+              "type": "required",
+              "path": "userEmail"
+          },
+          "kind": "required",
+          "path": "userEmail"
+      },
+      "userName": {
+          "name": "ValidatorError",
+          "message": "User Name canot be blank",
+          "properties": {
+              "message": "User Name canot be blank",
+              "type": "required",
+              "path": "userName"
+          },
+          "kind": "required",
+          "path": "userName"
+      }
+  },
+  "_message": "user validation failed",
+  "name": "ValidationError",
+  "message": "user validation failed: userEmail: Path `userEmail` is required., userName: User Name canot be blank"
 }

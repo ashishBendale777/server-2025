@@ -1,14 +1,18 @@
 
 import { User } from "../models/UserSchema.js";
-
+import bcrypt from "bcryptjs";
 
 //add user
 let createUser = async (req, res) => {
 
     let reqData = req.body
     console.log("UserData", reqData);
+
+
     try {
-        let result = await User.create(reqData)
+        // let salt = await bcrypt.getSalt(10)
+        // let encryptPassword = await bcrypt.hash(reqData.userPassword, salt)
+        let result = await User.create({ ...reqData})
         res.status(200).json({
             data: result,
             message: "User Added Successfully"

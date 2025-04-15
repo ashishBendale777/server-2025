@@ -13,6 +13,7 @@ let Server = express()
 
 
 Server.use(bodyparser.json())
+
 Server.use(cors())
 
 //Call DB Connection function
