@@ -1,5 +1,5 @@
 import express from "express"
-import { createUser, deleteUser, fetchAllUsers, updateUser } from "../controllers/UserController.js"
+import { createUser, deleteUser, doLogin, fetchAllUsers, updateUser } from "../controllers/UserController.js"
 
 let userRouter = express.Router()
 
@@ -7,6 +7,8 @@ userRouter.get("/fetchusers", fetchAllUsers)
 userRouter.post("/createuser", createUser)
 userRouter.delete("/deleteuser", deleteUser)
 userRouter.put("/updateuser", updateUser)
+
+userRouter.post("/login", doLogin)
 
 export { userRouter }
 

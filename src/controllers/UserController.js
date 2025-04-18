@@ -10,9 +10,9 @@ let createUser = async (req, res) => {
 
 
     try {
-        // let salt = await bcrypt.getSalt(10)
-        // let encryptPassword = await bcrypt.hash(reqData.userPassword, salt)
-        let result = await User.create({ ...reqData})
+        let salt = await bcrypt.genSalt(10)
+        let encryptPassword = await bcrypt.hash(reqData.userPassword, salt)
+        let result = await User.create({ ...reqData, userPassword: encryptPassword })
         res.status(200).json({
             data: result,
             message: "User Added Successfully"
@@ -20,6 +20,32 @@ let createUser = async (req, res) => {
     } catch (error) {
         res.status(500).json(error)
     }
+}
+
+//user login
+let doLogin = async (req, res) => {
+    let { userEmail, userPassword } = req.body
+    
+    //1 is use exist
+    let logedUser = await User.findOne({ userEmail })
+    if (!logedUser) {
+        return res.status(400).json({
+            message: "User Not Register"
+        })
+    }
+
+    //2 check password
+    let isValidPasswprd = await bcrypt.compare(userPassword, logedUser.userPassword)
+    if (!isValidPasswprd) {
+        return res.status(400).json({
+            message: "Invalid Password"
+        })
+    }
+
+    return res.status(200).json({
+        data: logedUser,
+        message: "Login Successfull"
+    })
 }
 
 //fetch all user
@@ -65,4 +91,4 @@ let updateUser = async (req, res) => {
     }
 }
 
-export { createUser, fetchAllUsers, deleteUser, updateUser }
+export { doLogin, createUser, fetchAllUsers, deleteUser, updateUser }
